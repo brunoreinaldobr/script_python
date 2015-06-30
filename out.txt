@@ -1,0 +1,2 @@
+valgrind: Bad option: --outfile=jpeg.txt
+valgrind: Use --help for more information or consult the user manual.
