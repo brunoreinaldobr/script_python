@@ -40,12 +40,12 @@ for algorithm in SEARCH_ALGORITHM:
     for search in SEARCH_AREA:
         cont = 1
         for video in VIDEOS_LIST:
+            p = video.split('_')
             command = 'cd ' + X265_PATH + ' && '
-            command += VALGRIND_CMD + ' --tool=cachegrind '
-            command += '--cachegrind-out-file=video' + str(cont) + '.txt '
+            command += VALGRIND_CMD + ' --tool=callgrind '
+            command += '--callgrind-out-file=x265_' + p[0] + '_' + algorithm + '_' + search '.txt '
             command += X265_CMD
             command += ' --input ' + VIDEOS_PATH + video + ' --fps ' + video[-6:-4] + ' --input-res '
-            p = video.split('_')
             command += p[1] + ' --frames 1 --me ' + algorithm + ' --merange ' + search + ' --output ' + p[0] + '.265'
             print (command)
             os.system(command)
