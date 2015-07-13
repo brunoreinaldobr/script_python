@@ -31,9 +31,9 @@ SEARCH_AREA = [
     '128'
 ]
 
-I1 = []
-D1 = []
-LL = []
+I1 = [str(16*1024),'4','64']
+D1 = [str(16*1024),'4','64']
+LL = [str(64*1024*1024),'8','64']
 
 OUTPUT_LIST = []
 # cd /home/bruno/x265/build/linux/
@@ -52,7 +52,7 @@ for algorithm in SEARCH_ALGORITHM:
             p = video.split('_')
             command = 'cd ' + X265_PATH + ' && '
             command += VALGRIND_CMD + ' --tool=callgrind '
-            command += '--callgrind-out-file=x265_' + p[0] + '_' + algorithm + '_' + search '.txt '
+            command += '--callgrind-out-file=x265_' + p[0] + '_' + algorithm + '_' + search + '-I1_16K_4_64-D1_16K_4_64-LL_64M_8_64.txt '
             command +='--I1=' + I1[0]+','+I1[1]+','+I1[2]+' '
             command +='--D1=' + D1[0]+','+D1[1]+','+D1[2]+' '
             command +='--LL=' + LL[0]+','+LL[1]+','+LL[2]+' '
