@@ -31,10 +31,19 @@ SEARCH_AREA = [
     '128'
 ]
 
+I1 = []
+D1 = []
+LL = []
+
 OUTPUT_LIST = []
 # cd /home/bruno/x265/build/linux/
 # valgrind --tool=cachegrind --cachegrind-out-file=video.txt ./x265 --input entrada.yuv --fps number_fps 
 # --input-res LarguraxAltura --seek first_frame_to_encode --frames number_frames --me <hex> --merange --output saida.x265
+
+#Callgrind: 
+#--I1 = <size>, <assoc>, <line>
+#--D1 =
+#--LL =
 
 for algorithm in SEARCH_ALGORITHM:
     for search in SEARCH_AREA:
@@ -44,6 +53,9 @@ for algorithm in SEARCH_ALGORITHM:
             command = 'cd ' + X265_PATH + ' && '
             command += VALGRIND_CMD + ' --tool=callgrind '
             command += '--callgrind-out-file=x265_' + p[0] + '_' + algorithm + '_' + search '.txt '
+            command +='--I1=' + I1[0]+','+I1[1]+','+I1[2]+' '
+            command +='--D1=' + D1[0]+','+D1[1]+','+D1[2]+' '
+            command +='--LL=' + LL[0]+','+LL[1]+','+LL[2]+' '
             command += X265_CMD
             command += ' --input ' + VIDEOS_PATH + video + ' --fps ' + video[-6:-4] + ' --input-res '
             command += p[1] + ' --frames 1 --me ' + algorithm + ' --merange ' + search + ' --output ' + p[0] + '.265'
