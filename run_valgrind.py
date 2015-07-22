@@ -27,8 +27,8 @@ IMAGES_LIST = [
 
 OUTPUT_LIST = []
 
-# valgrind --tool=cachegrind --cachegrind-out-file=jpeg.txt /opt/jpeg-9a/cjpeg -outfile /opt/jpeg-9a/imagens/saida.jpg entrada.jpg
-
+# valgrind --tool=cachegrind --cachegrind-out-file=jpeg.txt /opt/jpeg-9a/cjpeg
+# -outfile /opt/jpeg-9a/imagens/saida.jpg entrada.jpg
 # ----------------------------------------------------------------------------
 
 cont = 1
