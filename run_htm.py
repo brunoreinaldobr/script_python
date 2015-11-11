@@ -26,3 +26,5 @@ for video in VIDEO_LIST:
 
     print(command)
     os.system(command)
+
+    # Comentário
