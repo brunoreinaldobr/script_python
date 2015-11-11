@@ -25,5 +25,4 @@ for video in VIDEO_LIST:
     command += '-c ../cfg/MV-HEVC/' + video + ' -c ../cfg/MV-HEVC/seqCfg_Shark.cfg'
 
     print(command)
-
     os.system(command)
